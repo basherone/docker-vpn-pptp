@@ -9,7 +9,7 @@ COPY ./etc/ppp/pptpd-options /etc/ppp/pptpd-options
 COPY ./etc/ppp/chap-secrets /etc/ppp/chap-secrets
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod 0700 /entrypoint.sh
+RUN chmod 0777 /entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sudo /entrypoint.sh"]
 CMD ["pptpd", "--fg"]
